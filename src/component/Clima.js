@@ -1,9 +1,9 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 const Clima = ({ resultado }) => {
     //extraer valores
     const { name, main } = resultado;
-    if(!name) return null;
+    if (!name) return null;
 
     //pasar de kelvin a c
 
@@ -30,4 +30,7 @@ const Clima = ({ resultado }) => {
     );
 }
 
+Clima.prototype ={
+    resultado: PropTypes.object.isRequired
+}
 export default Clima;
