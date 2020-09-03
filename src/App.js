@@ -1,8 +1,22 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Header from './component/Header'
 import Formulario from './component/Formulario'
 
 function App() {
+
+  const [busqueda, guardarBusqueda] = useState({
+    ciudad: '',
+    pais: ''
+  });
+  const[consultar, guardarConsultar] = useState(false)
+
+  const { ciudad, pais } = busqueda;
+
+  useEffect(() => {
+    console.log(ciudad)
+
+  }, [consultar])
+
   return (
     <Fragment>
       <Header
@@ -13,7 +27,11 @@ function App() {
           <div className='row'>
 
             <div className='col m6 s12'>
-              <Formulario />
+              <Formulario
+                busqueda={busqueda}
+                guardarBusqueda={guardarBusqueda}
+                guardarConsultar={guardarConsultar}
+              />
             </div>
             <div className='col m6 s12'>
               2
